@@ -8,7 +8,7 @@ interface PropsType {
   id: string;
   done: boolean;
 }
-const ToDoItme: React.FC<PropsType> = ({
+const ToDoItem: React.FC<PropsType> = ({
   text,
   id,
   done,
@@ -31,4 +31,4 @@ const ToDoItme: React.FC<PropsType> = ({
   );
 };
 
-export default ToDoItme;
+export default ToDoItem;

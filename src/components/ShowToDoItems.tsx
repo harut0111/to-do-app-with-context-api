@@ -1,7 +1,7 @@
 import React from "react";
 import { useStateValue } from "../context";
 import { ToDoItemsType } from "../context/reducer";
-import ToDoItme from "./ToDoItme";
+import ToDoItem from "./ToDoItem";
 
 const ShowToDoItems: React.FC = (): JSX.Element => {
   const [state] = useStateValue();
@@ -9,7 +9,7 @@ const ShowToDoItems: React.FC = (): JSX.Element => {
   return (
     <div className="container">
       {state.todoItems.map((item: ToDoItemsType) => (
-        <ToDoItme key={item.id} {...item} />
+        <ToDoItem key={item.id} {...item} />
       ))}
     </div>
   );
