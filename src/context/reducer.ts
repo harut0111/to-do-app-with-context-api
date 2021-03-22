@@ -1,12 +1,18 @@
 import { v4 as uuidv4 } from "uuid";
-import { ADD_NEW_TASK } from "./actions";
+import { ADD_NEW_TASK, REMOVE_TASK } from "./actions";
 
 export const initialState = {
   todoItems: [],
 };
 
+export interface ToDoItemsType {
+  id: string;
+  text: string;
+  done: boolean;
+}
+
 export interface StateType {
-  todoItems: { id: string; text: string; done: boolean }[];
+  todoItems: ToDoItemsType[];
 }
 
 export interface ActionType {
@@ -21,9 +27,14 @@ export const reducer = (state: StateType, action: ActionType): StateType => {
       return {
         ...state,
         todoItems: [
-          ...state.todoItems,
           { id: uuidv4(), text: action.payload, done: false },
+          ...state.todoItems,
         ],
+      };
+    case REMOVE_TASK:
+      return {
+        ...state,
+        todoItems: state.todoItems.filter((item) => item.id !== action.payload),
       };
 
     default:
