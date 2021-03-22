@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, KeyboardEvent } from "react";
 import { useStateValue } from "../context";
 import { addNewTask } from "../context/actions";
 
 const AddTask: React.FC = (): JSX.Element => {
-  const [state, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
   const [inputVal, setInputVal] = useState("");
 
-  console.log(`state`, state)
   const handleOnClick = () => {
     dispatch(addNewTask(inputVal));
     setInputVal("");
+  };
+
+  const handleOnKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Enter") handleOnClick();
   };
 
   return (
@@ -18,6 +21,7 @@ const AddTask: React.FC = (): JSX.Element => {
         type="text"
         value={inputVal}
         onChange={(e) => setInputVal(e.target.value)}
+        onKeyDown={(e) => handleOnKeyDown(e)}
       />
       <button onClick={handleOnClick}>Add Task</button>
     </div>

@@ -8,8 +8,8 @@ const ShowToDoItems: React.FC = (): JSX.Element => {
 
   return (
     <div className="show-todo-items">
-      {state.todoItems.map(({ text, id }: ToDoItemsType) => (
-        <ToDoItme key={id} id={id} text={text} />
+      {state.todoItems.map((item: ToDoItemsType) => (
+        <ToDoItme key={item.id} {...item} />
       ))}
     </div>
   );
