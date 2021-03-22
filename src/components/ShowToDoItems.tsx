@@ -7,7 +7,7 @@ const ShowToDoItems: React.FC = (): JSX.Element => {
   const [state] = useStateValue();
 
   return (
-    <div className="show-todo-items">
+    <div className="container">
       {state.todoItems.map((item: ToDoItemsType) => (
         <ToDoItme key={item.id} {...item} />
       ))}

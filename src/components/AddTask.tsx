@@ -7,7 +7,7 @@ const AddTask: React.FC = (): JSX.Element => {
   const [inputVal, setInputVal] = useState("");
 
   const handleOnClick = () => {
-    dispatch(addNewTask(inputVal));
+    inputVal.trim() && dispatch(addNewTask(inputVal));
     setInputVal("");
   };
 
@@ -17,9 +17,11 @@ const AddTask: React.FC = (): JSX.Element => {
 
   return (
     <div className="add-task">
+      <div className="head-text">Simple To-Do App with context API...</div>
       <input
         type="text"
         value={inputVal}
+        placeholder="write to do text..."
         onChange={(e) => setInputVal(e.target.value)}
         onKeyDown={(e) => handleOnKeyDown(e)}
       />

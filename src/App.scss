@@ -1,0 +1,59 @@
+.App {
+  text-align: center;
+  margin: 10px auto;
+  padding: 50px;
+  width: 30%;
+  min-height: 250px;
+  min-width: 200px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  .add-task {
+    .head-text {
+      font-style: italic;
+      padding: 10px;
+    }
+
+    input,
+    button {
+      padding: 5px 10px;
+      margin: 5px 0;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  }
+
+  .container {
+    width: 280px;
+    overflow: hidden;
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px;
+      border: 1px solid gainsboro;
+      cursor: pointer;
+      &:hover {
+        border-color: red;
+      }
+      &-text {
+        text-align: left;
+        width: 90%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      &-trash {
+        float: right;
+      }
+    }
+    .done {
+      text-decoration: line-through;
+      background-color: lightgray;
+    }
+  }
+}

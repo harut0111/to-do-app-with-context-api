@@ -1,4 +1,5 @@
 import React from "react";
+import { FaTrash } from "react-icons/fa";
 import { useStateValue } from "../context";
 import { removeTask, changeTaskStatus } from "../context/actions";
 
@@ -16,11 +17,16 @@ const ToDoItme: React.FC<PropsType> = ({
 
   return (
     <div
-      className={`todo-item ${done ? "done" : ""}`}
+      className={`container-item ${done ? "done" : ""}`}
       onClick={() => dispatch(changeTaskStatus(id))}
     >
-      <span className="todo-item-text">{text}</span>
-      <button onClick={() => dispatch(removeTask(id))}>Remove</button>
+      <span className="container-item-text">{text}</span>
+      <span
+        className="container-item-trash"
+        onClick={() => dispatch(removeTask(id))}
+      >
+        <FaTrash color="red" />
+      </span>
     </div>
   );
 };
