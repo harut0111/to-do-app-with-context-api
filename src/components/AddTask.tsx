@@ -11,7 +11,7 @@ const AddTask: React.FC = (): JSX.Element => {
     setInputVal("");
   };
 
-  const handleOnKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+  const handleOnKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") handleOnClick();
   };
 
