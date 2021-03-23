@@ -1,9 +1,9 @@
 import React, { createContext, Dispatch, useContext, useReducer } from "react";
-import { ActionType, initialState, StateType } from "./reducer";
+import { ActionType, StateType } from "./reducer";
 
-const StateContext = createContext<
-  StateType | [StateType, Dispatch<ActionType>]
->(initialState);
+const StateContext = createContext<[StateType, Dispatch<ActionType>] | null>(
+  null
+);
 
 type PropsType = {
   reducer: (state: StateType, action: ActionType) => StateType;
@@ -15,7 +15,7 @@ export const StateProvider: React.FC<PropsType> = ({
   reducer,
   initialState,
   children,
-}: PropsType) => (
+}: PropsType): JSX.Element => (
   <StateContext.Provider value={useReducer(reducer, initialState)}>
     {children}
   </StateContext.Provider>
